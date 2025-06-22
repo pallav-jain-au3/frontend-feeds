@@ -27,11 +27,11 @@ const TOOLBAR = {
 
 const Toolbar = ({ onToolbarAction }) => {
   return (
-    <div className="flex items-center space-x-2 mb-2 justify-between">
-      <div className='flex items-center gap-2 bg-gray-100 px-2 py-1 rounded-lg'>
+    <div className="flex items-center space-x-1 mb-2 justify-between w-full">
+      <div className='flex items-center gap-1 bg-gray-100 px-1 py-1 rounded-lg flex-wrap'>
         <button
           key={TOOLBAR.PARAGRAPH.label}
-          className="text-gray-500 text-xs font-semibold shadow-sm bg-white px-2 py-1 rounded-lg"
+          className="text-gray-500 text-xs font-semibold shadow-sm bg-white px-1.5 py-0.5 rounded"
           onClick={onToolbarAction}
           type="button"
         >
@@ -39,7 +39,7 @@ const Toolbar = ({ onToolbarAction }) => {
         </button>
         <button
           key={TOOLBAR.BOLD.label}
-          className="ml-2 text-gray-500 shadow px-2 py-1 bg-white rounded text-xs font-semibold"
+          className="text-gray-500 shadow px-1.5 py-0.5 bg-white rounded text-xs font-semibold"
           onClick={onToolbarAction}
           type="button"
         >
@@ -47,7 +47,7 @@ const Toolbar = ({ onToolbarAction }) => {
         </button>
         <button
           key={TOOLBAR.ITALIC.label}
-          className="text-gray-500 px-2 py-1 rounded text-xs font-semibold"
+          className="text-gray-500 px-1.5 py-0.5 rounded text-xs font-semibold"
           onClick={onToolbarAction}
           type="button"
         >
@@ -55,16 +55,16 @@ const Toolbar = ({ onToolbarAction }) => {
         </button>
         <button
           key={TOOLBAR.UNDERLINE.label}
-          className="text-gray-500 px-2 py-1 rounded text-xs font-semibold"
+          className="text-gray-500 px-1.5 py-0.5 rounded text-xs font-semibold"
           onClick={onToolbarAction}
           type="button"
         >
           {TOOLBAR.UNDERLINE.icon}
         </button>
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-1'>
           <button
             key={TOOLBAR.OL.label}
-            className="text-gray-500 px-2 py-1 rounded text-xs font-semibold"
+            className="text-gray-500 px-1.5 py-0.5 rounded text-xs font-semibold"
             onClick={onToolbarAction}
             type="button"
           >
@@ -72,7 +72,7 @@ const Toolbar = ({ onToolbarAction }) => {
           </button>
           <button
             key={TOOLBAR.UL.label}
-            className="text-gray-500 px-2 py-1 rounded text-xs font-semibold"
+            className="text-gray-500 px-1.5 py-0.5 rounded text-xs font-semibold"
             onClick={onToolbarAction}
             type="button"
           >
@@ -81,17 +81,17 @@ const Toolbar = ({ onToolbarAction }) => {
         </div>
         <button
           key={TOOLBAR.CODE.label}
-          className="text-gray-500 px-2 py-1 rounded text-xs font-semibold"
+          className="text-gray-500 px-1.5 py-0.5 rounded text-xs font-semibold"
           onClick={onToolbarAction}
           type="button"
         >
           {TOOLBAR.CODE.icon}
         </button>
       </div>
-      <div className='flex items-center gap-2'>
+      <div className='flex items-center gap-1 flex-shrink-0'>
         <button
           key={TOOLBAR.DELETE.label}
-          className="text-red-500 px-2 py-2 rounded-lg bg-red-100 hover:text-red-700 transition-colors"
+          className="text-red-500 px-1.5 py-1 rounded bg-red-100 hover:text-red-700 transition-colors"
           onClick={onToolbarAction}
           type="button"
         >

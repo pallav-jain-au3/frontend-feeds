@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PostEditor from '../components/PostEditor';
 import PostCard from '../components/FeedCard';
 import { useAppContext } from '../hooks/useAppContext';
 
 const FeedPage = () => {
   const { feed, auth, toast } = useAppContext();
-  const { posts, loading, fetchPosts , addPost} = feed;
-  const { user, openAuthModal } = auth;
+  const { posts, loading, fetchPosts, addPost, user } = feed;
+  const { isAuthenticated, openAuthModal } = auth;
   const { showToast } = toast;
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  const handlePublish = (content) => {
-    if (!user) {
+  const handleClick = (e) => {
+    if (!isAuthenticated) {
       openAuthModal('signin');
-      return false;
     }
+  }
 
+  const handlePublish = (content) => {
+    if (!isAuthenticated) return;
     if (!content.trim()) {
       showToast('Please enter some content', 'error');
       return false;
@@ -40,10 +42,7 @@ const FeedPage = () => {
   };
 
   const handleActions = () => {
-    if (!user) {
-      openAuthModal('signin');
-      return;
-    }
+    if (!isAuthenticated) return;
     showToast(`functionality not implemented`, 'error');
   };
 
@@ -56,13 +55,13 @@ const FeedPage = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
+    <div className="max-w-2xl mx-auto px-4 py-8" onClick={handleClick}>
       <PostEditor onPublish={handlePublish} onToolbarAction={handleActions} />
       <div className="space-y-4">
         {posts.map((post, index) => (
-          <PostCard 
-            key={post.id} 
-            post={post} 
+          <PostCard
+            key={post.id}
+            post={post}
             isNew={index === 0 && post.time === 'Just now'}
             onCardAction={handleActions}
           />

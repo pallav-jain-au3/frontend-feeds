@@ -9,7 +9,7 @@ const Toast = () => {
     if (toastData) {
       const timer = setTimeout(() => {
         hideToast();
-      }, 3000);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [toastData, hideToast]);

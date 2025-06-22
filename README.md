@@ -101,27 +101,36 @@ For testing purposes, you can use these demo accounts:
 
 ```
 src/
-├── Auth/                 # Authentication components
-│   ├── AuthModal.js     # Modal for sign-in/sign-up
-│   └── SignInForm.js    # Sign-in form component
-├── components/          # Reusable UI components
-│   ├── Header.js        # Navigation header
-│   ├── PostEditor.js    # Post creation interface
-│   ├── FeedCard.js      # Individual post display
-│   └── Toast.js         # Notification component
-├── contexts/           # React context providers
-│   ├── AuthContext.js  # Authentication state management
-│   ├── FeedContext.js  # Posts and feed data management
-│   └── ToastContext.js # Notification system
-├── hooks/              # Custom React hooks
-│   └── useAppContext.js # Main app context hook
-├── pages/              # Page components
-│   ├── FeedPage.js     # Main feed page
-│   ├── SignInPage.js   # Sign-in page
-│   └── SignUpPage.js   # Sign-up page
-├── providers/          # Context providers
-│   └── AppProvider.js  # Main app provider
-└── App.js              # Main application component
+├── assets/
+│   ├── logo.svg
+│   └── styles/
+│       ├── App.css
+│       └── index.css
+├── components/
+│   ├── ActionButtons.js
+│   ├── Auth/
+│   │   ├── AuthModal.js
+│   │   └── SignInUpForm.js
+│   ├── FeedCard.js
+│   ├── FeedsList.js
+│   ├── Header.js
+│   ├── Modal.js
+│   ├── PostEditor.js
+│   ├── Toast.js
+│   └── Toolbar.js
+├── contexts/
+│   ├── AuthContext.js
+│   ├── FeedContext.js
+│   └── ToastContext.js
+├── hooks/
+│   └── useAppContext.js
+├── pages/
+│   ├── FeedPage.js
+│   └── SignInUpPage.js
+├── providers/
+│   └── AppProvider.js
+├── App.js
+└── index.js
 ```
 
 ## 🎨 Key Components

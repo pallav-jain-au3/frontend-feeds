@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import AppProvider from './providers/AppProvider';
 import Header from './components/Header';
 import FeedPage from './pages/FeedPage';
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
-import AuthModal from './Auth/AuthModal';
+import SignInUpPage from './pages/SignInUpPage';
+import AuthModal from './components/Auth/AuthModal';
 import Toast from './components/Toast';
 import { useAppContext } from './hooks/useAppContext';
 
@@ -19,8 +18,8 @@ function AppContent() {
       <Header showToast={showToast} isAuthenticated={isAuthenticated} user={user} openAuthModal={openAuthModal} logout={logout} />
       <Routes>
         <Route path="/" element={<FeedPage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/signin" element={<SignInUpPage />} />
+        <Route path="/signup" element={<SignInUpPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <AuthModal />

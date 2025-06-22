@@ -65,11 +65,12 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
     setIsAuthenticated(true);
     setAuthModalType(null);
+    localStorage.setItem('users', JSON.stringify([...users, userData]));
     localStorage.setItem('user', JSON.stringify(userData));
     return { success: true, message: 'Signup successful' };
   };
 
-  const login = (userData) => {  
+  const login = (userData) => {
     const user = authenticateUser(userData.username, userData.password);
     if (!user) {
       return { success: false, message: 'Invalid username or password' };
@@ -105,6 +106,7 @@ export const AuthProvider = ({ children }) => {
     authModalType,
     openAuthModal,
     closeAuthModal,
+    setAuthModalType,
   };
 
   return (
