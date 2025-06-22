@@ -3,7 +3,7 @@ import { useAppContext } from '../../hooks/useAppContext';
 import PropTypes from 'prop-types';
 
 
-const SignInUpForm = ({ formType, changeFormType, onSuccess, onError }) => {
+const SignInUpForm = ({ formType, changeFormType, onSuccess, onError, usernameRef }) => {
   const headerText = formType === 'signin' ? 'Sign In to Continue' : 'Sign Up to Continue';
   const subHeaderText = formType === 'signin' ? 'Sign in to access all features on this app' : 'Sign up to access all features on this app';
   const buttonText = formType === 'signin' ? 'Sign In' : 'Sign Up';
@@ -15,7 +15,6 @@ const SignInUpForm = ({ formType, changeFormType, onSuccess, onError }) => {
     password: ''
   });
   const [loading, setLoading] = useState(false);
-
   const { auth } = useAppContext();
   const { login, signup } = auth;
 
@@ -75,6 +74,7 @@ const SignInUpForm = ({ formType, changeFormType, onSuccess, onError }) => {
                 Email or Username
               </label>
               <input
+                ref={usernameRef}
                 type="text"
                 id="username"
                 name="username"
