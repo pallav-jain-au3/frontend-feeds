@@ -1,70 +1,201 @@
-# Getting Started with Create React App
+# Feeds Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React-based social media feed application with real-time posting, authentication, and a clean user interface.
 
-## Available Scripts
+## 🌐 Live Demo
 
-In the project directory, you can run:
+**Try the application live:** [https://feeds-frontend-nflu0aub3-pallav-jain-au3s-projects.vercel.app](https://feeds-frontend-nflu0aub3-pallav-jain-au3s-projects.vercel.app)
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Social Feed**: View and interact with posts in a clean, modern interface
+- **User Authentication**: Sign up, sign in, and manage user sessions
+- **Post Creation**: Create and publish new posts
+- **Real-time Updates**: Posts appear instantly in the feed
+- **Responsive Design**: Optimized for desktop devices
+- **Toast Notifications**: User-friendly feedback for actions
+- **Modal Authentication**: Seamless sign-in/sign-up experience
+- **Local Storage Persistence**: User sessions and data persist across browser sessions
+- **Context-based State Management**: Centralized state management using React Context API
+- **Custom Hooks**: Reusable logic with `useAppContext` hook
+- **Form Validation**: Real-time validation for user inputs
+- **Loading States**: Smooth loading indicators for better UX
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧠 State Management with Context API
 
-### `npm test`
+### **AppProvider Architecture**
+The application uses a centralized state management system built with React Context API:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+// Main App Provider wraps the entire application
+<AppProvider>
+  <AppContent />
+</AppProvider>
+```
 
-### `npm run build`
+### **Context Structure**
+- **AuthContext**: Manages user authentication state, login/logout, and modal controls
+- **FeedContext**: Handles posts data, CRUD operations, and feed updates
+- **ToastContext**: Manages notification system for user feedback
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Key Context Features**
+- **Persistent Sessions**: User authentication state persists using localStorage
+- **Real-time Updates**: Context updates trigger immediate UI re-renders
+- **Modal Management**: Centralized control of authentication modals
+- **Toast Notifications**: Global notification system for user feedback
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Custom Hook Usage**
+```javascript
+const { auth, feed, toast } = useAppContext();
+const { user, isAuthenticated, login, logout } = auth;
+const { posts, addPost, fetchPosts } = feed;
+const { showToast } = toast;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tech Stack
 
-### `npm run eject`
+- **Frontend Framework**: React 19.1.0
+- **Routing**: React Router DOM 6.30.1
+- **Styling**: Tailwind CSS 3.4.17
+- **State Management**: React Context API with custom hooks
+- **Build Tool**: Create React App 5.0.1
+- **Testing**: React Testing Library
+- **Deployment**: Vercel (Production)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/pallav-jain-au3/frontend-feeds.git
+   cd feeds-frontend
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-## Learn More
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧪 Demo Credentials
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For testing purposes, you can use these demo accounts:
 
-### Code Splitting
+### Demo User 1
+- **Username**: `demo@example.com`
+- **Password**: `password123`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Demo User 2
+- **Username**: `test@example.com`
+- **Password**: `testpass`
 
-### Analyzing the Bundle Size
+> **Note**: These are demo accounts for testing. In a production environment, you would need to implement proper backend authentication.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🏗️ Project Structure
 
-### Making a Progressive Web App
+```
+src/
+├── Auth/                 # Authentication components
+│   ├── AuthModal.js     # Modal for sign-in/sign-up
+│   └── SignInForm.js    # Sign-in form component
+├── components/          # Reusable UI components
+│   ├── Header.js        # Navigation header
+│   ├── PostEditor.js    # Post creation interface
+│   ├── FeedCard.js      # Individual post display
+│   └── Toast.js         # Notification component
+├── contexts/           # React context providers
+│   ├── AuthContext.js  # Authentication state management
+│   ├── FeedContext.js  # Posts and feed data management
+│   └── ToastContext.js # Notification system
+├── hooks/              # Custom React hooks
+│   └── useAppContext.js # Main app context hook
+├── pages/              # Page components
+│   ├── FeedPage.js     # Main feed page
+│   ├── SignInPage.js   # Sign-in page
+│   └── SignUpPage.js   # Sign-up page
+├── providers/          # Context providers
+│   └── AppProvider.js  # Main app provider
+└── App.js              # Main application component
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎨 Key Components
 
-### Advanced Configuration
+### FeedPage
+The main page displaying the social feed with:
+- Post creation interface with real-time validation
+- Dynamic post display with timestamps
+- User authentication integration
+- Loading states and error handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### AuthModal
+A modal component for seamless authentication:
+- Sign-in and sign-up forms in a single modal
+- Context-aware display and state management
+- Smooth transitions and animations
+- Form validation and error handling
 
-### Deployment
+### PostEditor
+Rich text editor for creating new posts:
+- Real-time content validation
+- Toolbar actions for enhanced functionality
+- Publish functionality with success feedback
+- Integration with feed context for immediate updates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Context Providers
+- **AuthContext**: Manages user sessions, authentication state, and modal controls
+- **FeedContext**: Handles posts data, CRUD operations, and real-time updates
+- **ToastContext**: Provides global notification system
 
-### `npm run build` fails to minify
+## 🔐 Authentication Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Guest Users**: Can view posts but need to sign in to create content
+2. **Sign In**: Users can sign in via the modal or dedicated page
+3. **Sign Up**: New users can create accounts with validation
+4. **Session Management**: Automatic session handling with localStorage persistence
+5. **Modal Integration**: Seamless authentication experience without page navigation
+
+## 🔧 Advanced Features
+
+### **Local Storage Integration**
+- User sessions persist across browser sessions
+- Default demo users are automatically initialized
+- Data persistence without backend dependency
+
+### **Real-time Updates**
+- Posts appear instantly in the feed after creation
+- Context updates trigger immediate UI re-renders
+- Optimistic updates for better user experience
+
+### **Responsive Design**
+- Mobile-first approach with Tailwind CSS
+- Responsive breakpoints for all screen sizes
+- Touch-friendly interface elements
+
+### **Error Handling**
+- Comprehensive error boundaries
+- User-friendly error messages
+- Graceful fallbacks for failed operations
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Deploy to Vercel
+```bash
+vercel --prod
+```
+
+### Live Deployment
+The application is deployed on Vercel and available at:
+**https://feeds-frontend-nflu0aub3-pallav-jain-au3s-projects.vercel.app**
+
+
