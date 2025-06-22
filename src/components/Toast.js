@@ -14,20 +14,25 @@ const Toast = () => {
     }
   }, [toastData, hideToast]);
 
-  if (!toastData) return null;
 
-  const bgColor = {
+  const bgColorClass = {
     success: 'bg-green-500',
     error: 'bg-red-500',
     info: 'bg-blue-500',
     warning: 'bg-yellow-500'
-  }[toastData.type] || 'bg-blue-500';
+  }
+  const bgColor = bgColorClass[toastData?.type] || 'bg-blue-500';
 
   return (
-    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-      <div className={`${bgColor} text-white px-4 py-2 rounded-md shadow-lg`}>
-        {toastData.message}
-      </div>
+    <div className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-out ${toastData
+      ? 'translate-y-0 opacity-100'
+      : 'translate-y-full opacity-0'
+      }`}>
+      {toastData && (
+        <div className={`${bgColor} text-white px-4 py-2 rounded-md shadow-lg transform transition-all duration-300 ease-out`}>
+          {toastData.message}
+        </div>
+      )}
     </div>
   );
 };

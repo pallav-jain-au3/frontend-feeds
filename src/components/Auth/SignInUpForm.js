@@ -3,7 +3,7 @@ import { useAppContext } from '../../hooks/useAppContext';
 import PropTypes from 'prop-types';
 
 
-const SignInUpForm = ({ formType, changeFormType, onSuccess, onError, usernameRef }) => {
+const SignInUpForm = ({ formType, changeFormType, onSuccess, onError }) => {
   const headerText = formType === 'signin' ? 'Sign In to Continue' : 'Sign Up to Continue';
   const subHeaderText = formType === 'signin' ? 'Sign in to access all features on this app' : 'Sign up to access all features on this app';
   const buttonText = formType === 'signin' ? 'Sign In' : 'Sign Up';
@@ -74,7 +74,6 @@ const SignInUpForm = ({ formType, changeFormType, onSuccess, onError, usernameRe
                 Email or Username
               </label>
               <input
-                ref={usernameRef}
                 type="text"
                 id="username"
                 name="username"
@@ -132,7 +131,7 @@ SignInUpForm.propTypes = {
   formType: PropTypes.string.isRequired,
   changeFormType: PropTypes.func.isRequired,
   onSuccess: PropTypes.func,
-  onError: PropTypes.func
+  onError: PropTypes.func,
 };
 
 export default SignInUpForm; 

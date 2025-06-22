@@ -5,8 +5,8 @@ import { useAppContext } from '../hooks/useAppContext';
 
 const FeedPage = () => {
   const { feed, auth, toast } = useAppContext();
-  const { posts, loading, fetchPosts, addPost, user } = feed;
-  const { isAuthenticated, openAuthModal } = auth;
+  const { posts, loading, fetchPosts, addPost } = feed;
+  const { isAuthenticated, openAuthModal, user } = auth;
   const { showToast } = toast;
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const FeedPage = () => {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8" onClick={handleClick}>
-      <PostEditor onPublish={handlePublish} onToolbarAction={handleActions} />
+      <PostEditor onPublish={handlePublish} onToolbarAction={handleActions} disabled={!isAuthenticated} />
       <div className="space-y-4">
         {posts.map((post, index) => (
           <PostCard

@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const AuthModal = () => {
   const { auth, toast } = useAppContext();
-  const usernameRef = useRef(null);
   const { authModalType, closeAuthModal, setAuthModalType } = auth;
   const { showToast } = toast;
   const isOpen = !!authModalType;
@@ -27,11 +26,6 @@ const AuthModal = () => {
     showToast(message, 'error');
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      usernameRef?.current?.focus();
-    }
-  }, [isOpen]);
 
   return (
     <Modal
@@ -44,7 +38,6 @@ const AuthModal = () => {
         changeFormType={changeFormType}
         onSuccess={onSuccess}
         onError={onError}
-        usernameRef={usernameRef}
       />
     </Modal>
   );
