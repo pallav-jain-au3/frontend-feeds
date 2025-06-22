@@ -4,7 +4,7 @@ A modern React-based social media feed application with real-time posting, authe
 
 ## 🌐 Live Demo
 
-**Try the application live:** [https://feeds-frontend-nflu0aub3-pallav-jain-au3s-projects.vercel.app](https://feeds-frontend-nflu0aub3-pallav-jain-au3s-projects.vercel.app)
+**Try the application live:** [https://feeds-frontend-kwmihnbsu-pallav-jain-au3s-projects.vercel.app](https://feeds-frontend-kwmihnbsu-pallav-jain-au3s-projects.vercel.app)
 
 ## 🚀 Features
 
@@ -205,6 +205,6 @@ vercel --prod
 
 ### Live Deployment
 The application is deployed on Vercel and available at:
-**https://feeds-frontend-nflu0aub3-pallav-jain-au3s-projects.vercel.app**
+**https://feeds-frontend-kwmihnbsu-pallav-jain-au3s-projects.vercel.app**
 
 
